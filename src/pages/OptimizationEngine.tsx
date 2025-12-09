@@ -108,11 +108,7 @@ const OptimizationEngine: React.FC = () => {
         }}>
           Today's Optimization Summary
         </h2>
-        <div style={{
-          display: 'flex',
-          gap: '1rem',
-          flexWrap: 'wrap'
-        }}>
+        <div className="kpi-grid">
           {optimizationKpis.map((kpi, index) => (
             <KpiCard
               key={index}
@@ -127,19 +123,13 @@ const OptimizationEngine: React.FC = () => {
 
       {/* Main Content: Two Columns */}
       <div
-        className="optimization-bottom-row"
-        style={{
-          display: 'flex',
-          gap: '1.5rem',
-          alignItems: 'stretch',
-          marginBottom: '2rem'
-        }}
+        className="two-column-layout optimization-bottom-row"
+        style={{ marginBottom: '2rem' }}
       >
         {/* Left Column - GPU Schedule */}
         <div
           className="optimization-card gpu-schedule-card"
           style={{
-            flex: 1.5,
             display: 'flex',
             flexDirection: 'column'
           }}
@@ -213,7 +203,6 @@ const OptimizationEngine: React.FC = () => {
         <div
           className="optimization-card control-levers-card"
           style={{
-            flex: 1,
             display: 'flex',
             flexDirection: 'column'
           }}

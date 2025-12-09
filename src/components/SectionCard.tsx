@@ -8,13 +8,15 @@ interface SectionCardProps {
 
 const SectionCard: React.FC<SectionCardProps> = ({ title, children, maxHeight }) => {
   return (
-    <div style={{
-      backgroundColor: '#1a1a1a',
-      border: '1px solid #333',
-      borderRadius: '8px',
-      padding: '1.5rem',
-      ...(maxHeight && { maxHeight, overflowY: 'auto' })
-    }}>
+    <div
+      className="card section-card"
+      style={{
+        backgroundColor: '#1a1a1a',
+        border: '1px solid #333',
+        borderRadius: '8px',
+        ...(maxHeight && { maxHeight, overflowY: 'auto' })
+      }}
+    >
       <h3 style={{
         fontSize: '1rem',
         color: '#fff',

@@ -178,13 +178,7 @@ const EventCenter: React.FC = () => {
       </div>
 
       {/* Two Column Layout */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1.5fr',
-        gap: '1.5rem',
-        height: 'calc(100vh - 280px)',
-        minHeight: '600px'
-      }}>
+      <div className="two-column-layout events-layout">
         {/* Left Column - Event List */}
         <div style={{
           display: 'flex',
@@ -240,7 +234,9 @@ const EventCenter: React.FC = () => {
         </div>
 
         {/* Right Column - Event Details */}
-        <EventDetails event={selectedEvent} />
+        <div className="event-details-card">
+          <EventDetails event={selectedEvent} />
+        </div>
       </div>
     </div>
   );

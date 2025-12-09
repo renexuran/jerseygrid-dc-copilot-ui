@@ -21,68 +21,26 @@ const App: React.FC = () => {
   ];
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-primary)' }}>
-      <nav style={{
-        backgroundColor: 'var(--bg-secondary)',
-        padding: '1rem 2rem',
-        borderBottom: '2px solid var(--border-secondary)',
-        display: 'flex',
-        gap: '2rem',
-        alignItems: 'center',
-        boxShadow: 'var(--shadow-md)'
-      }}>
-        <div style={{
-          fontWeight: 'bold',
-          fontSize: '1.2rem',
-          marginRight: '2rem',
-          color: 'var(--accent-electric)',
-          textShadow: '0 0 10px rgba(0, 212, 255, 0.5)'
-        }}>
-          ⚡ JerseyGrid DC Copilot
+    <div className="app-shell">
+      <nav className="navbar">
+        <div className="navbar-logo">⚡ JerseyGrid DC Copilot</div>
+        <div className="nav-links">
+          {navLinks.map(({ path, label }) => {
+            const isActive = location.pathname === path;
+            return (
+              <Link
+                key={path}
+                to={path}
+                className={`nav-link ${isActive ? 'active' : ''}`}
+              >
+                {label}
+              </Link>
+            );
+          })}
         </div>
-        {navLinks.map(({ path, label }) => {
-          const isActive = location.pathname === path;
-          return (
-            <Link
-              key={path}
-              to={path}
-              style={{
-                color: isActive ? 'var(--accent-electric)' : 'var(--text-secondary)',
-                textDecoration: 'none',
-                padding: '0.5rem 1rem',
-                borderRadius: 'var(--radius-sm)',
-                backgroundColor: isActive ? 'rgba(0, 212, 255, 0.1)' : 'transparent',
-                border: isActive ? '1px solid var(--accent-electric)' : '1px solid transparent',
-                transition: 'all 0.2s ease',
-                fontSize: '0.9rem',
-                fontWeight: isActive ? '600' : '400'
-              }}
-              onMouseEnter={(e) => {
-                if (!isActive) {
-                  e.currentTarget.style.color = 'var(--text-primary)';
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!isActive) {
-                  e.currentTarget.style.color = 'var(--text-secondary)';
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                }
-              }}
-            >
-              {label}
-            </Link>
-          );
-        })}
       </nav>
 
-      <main style={{
-        flex: 1,
-        maxWidth: '1400px',
-        margin: '0 auto',
-        width: '100%',
-        padding: '2rem'
-      }}>
+      <main className="page-container">
         <Routes>
           <Route path="/" element={<LiveOperations />} />
           <Route path="/optimization" element={<OptimizationEngine />} />

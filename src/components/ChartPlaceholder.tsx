@@ -99,6 +99,7 @@ const ChartPlaceholder: React.FC<ChartPlaceholderProps> = ({
 
   return (
     <div
+      className="chart-container"
       style={{
         flex: 1,
         display: 'flex',

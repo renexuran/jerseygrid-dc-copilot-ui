@@ -150,12 +150,7 @@ const LiveOperations: React.FC = () => {
       </div>
 
       {/* KPI Cards Row */}
-      <div style={{
-        display: 'flex',
-        gap: '1rem',
-        marginBottom: '2rem',
-        flexWrap: 'wrap'
-      }}>
+      <div className="kpi-grid">
         {kpiData.map((kpi, index) => (
           <KpiCard
             key={index}
@@ -168,17 +163,19 @@ const LiveOperations: React.FC = () => {
       </div>
 
       {/* 24-Hour Load Profile Chart */}
-      <div style={{
-        backgroundColor: 'var(--bg-card)',
-        border: '1px solid var(--border-primary)',
-        borderRadius: 'var(--radius-md)',
-        padding: '1.5rem',
-        minHeight: '400px',
-        display: 'flex',
-        flexDirection: 'column',
-        marginBottom: '2rem',
-        boxShadow: 'var(--shadow-md)'
-      }}>
+      <div
+        className="card chart-panel chart-container"
+        style={{
+          backgroundColor: 'var(--bg-card)',
+          border: '1px solid var(--border-primary)',
+          borderRadius: 'var(--radius-md)',
+          minHeight: '400px',
+          display: 'flex',
+          flexDirection: 'column',
+          marginBottom: '2rem',
+          boxShadow: 'var(--shadow-md)'
+        }}
+      >
         <h3 style={{
           fontSize: '1rem',
           color: 'var(--text-primary)',

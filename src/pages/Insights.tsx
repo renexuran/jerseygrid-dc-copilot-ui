@@ -244,17 +244,10 @@ const Insights: React.FC = () => {
         <div style={{
           display: 'flex',
           flexDirection: 'column',
-          gap: '1rem',
-          alignItems: 'center'
+          gap: '1rem'
         }}>
           {/* Top Row - 3 Cards */}
-          <div style={{
-            display: 'flex',
-            gap: '1rem',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            maxWidth: '100%'
-          }}>
+          <div className="kpi-grid" style={{ marginBottom: '1rem' }}>
             <KpiCard
               title="Total Energy Cost"
               value={`$${(metrics.totalEnergyCost / 1000).toFixed(1)}K`}
@@ -276,13 +269,7 @@ const Insights: React.FC = () => {
           </div>
 
           {/* Bottom Row - 2 Cards */}
-          <div style={{
-            display: 'flex',
-            gap: '1rem',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            maxWidth: '100%'
-          }}>
+          <div className="kpi-grid">
             <KpiCard
               title="Carbon Reduction"
               value={`${(metrics.carbonReduction / 1000).toFixed(1)}`}
@@ -306,12 +293,7 @@ const Insights: React.FC = () => {
       </div>
 
       {/* Analytics Section: Two Columns */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '1.5rem',
-        marginBottom: '2rem'
-      }}>
+      <div className="charts-row">
         {/* Left Chart - Cost & Savings Over Time */}
         <SectionCard title="Cost & Savings Over Time">
           <div style={{ padding: '1rem 0' }}>
@@ -518,22 +500,15 @@ const Insights: React.FC = () => {
       {/* Additional Charts Section */}
       {(showPUETrend || showSolarTrend) && (
         <div
-          className="insights-bottom-row"
-          style={{
-            display: 'flex',
-            gap: '1.5rem',
-            alignItems: 'stretch',
-            marginBottom: '2rem'
-          }}
+          className="two-column-layout insights-bottom-row"
+          style={{ marginBottom: '2rem' }}
         >
           {/* PUE Performance card */}
           <div
-            className="insights-card pue-performance-card"
+            className="card insights-card pue-performance-card chart-panel"
             style={{
-              flex: 1,
               display: 'flex',
-              flexDirection: 'column',
-              height: '580px'
+              flexDirection: 'column'
             }}
           >
             <div
@@ -542,7 +517,7 @@ const Insights: React.FC = () => {
                 borderRadius: 8,
                 border: '1px solid #333',
                 padding: '1.5rem',
-                height: '100%',
+                flex: 1,
                 display: 'flex',
                 flexDirection: 'column'
               }}
@@ -574,12 +549,10 @@ const Insights: React.FC = () => {
 
           {/* View Controls card */}
           <div
-            className="insights-card view-controls-card"
+            className="card insights-card view-controls-card chart-panel"
             style={{
-              flex: 1,
               display: 'flex',
-              flexDirection: 'column',
-              height: '580px'
+              flexDirection: 'column'
             }}
           >
             <div
@@ -588,7 +561,7 @@ const Insights: React.FC = () => {
                 borderRadius: 8,
                 border: '1px solid #333',
                 padding: '1.5rem',
-                height: '100%',
+                flex: 1,
                 display: 'flex',
                 flexDirection: 'column'
               }}
